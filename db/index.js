@@ -4,7 +4,7 @@ const DB_NAME = "change";
 
 const client = new Client(
   process.env.DATABASE_URL ||
-    `postgressql://postgres:james@localhost:5432/${DB_NAME}`
+    `postgressql://postgres:postgres@localhost:5432/${DB_NAME}`
 );
 
 async function createUser({ username, password, email }) {
