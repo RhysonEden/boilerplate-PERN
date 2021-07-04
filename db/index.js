@@ -7,6 +7,14 @@ const client = new Client(
     `postgressql://postgres:postgres@localhost:5432/${DB_NAME}`
 );
 
+// Turn on when uploading to heroku
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// });
+
 async function createUser({ username, password, email }) {
   try {
     const result = await client.query(
