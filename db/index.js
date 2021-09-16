@@ -4,8 +4,16 @@ const DB_NAME = "change";
 
 const client = new Client(
   process.env.DATABASE_URL ||
-    `postgressql://postgres:james@localhost:5432/${DB_NAME}`
+    `postgressql://postgres:postgres@localhost:5432/${DB_NAME}`
 );
+
+// Turn on when uploading to heroku
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// });
 
 async function createUser({ username, password, email }) {
   try {
