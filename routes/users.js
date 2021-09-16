@@ -12,8 +12,14 @@ const SALT_COUNT = 10;
 
 usersRouter.get("/", async (req, res, next) => {
   try {
-    const users = await getAllUsers();
-    res.send({ users });
+    console.log(test);
+    const users = await getUserByUsername(james);
+    console.log(users);
+    // getAllUsers();
+    res.send({
+      message: "Users is under construction!",
+    });
+    // res.send({ users });
   } catch ({ name, message }) {
     next({ name, message });
   }

@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from 'react';
-
-import {
-  getSomething
-} from '../api';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Second from "./Second";
+import Start from "./Start";
 
 const App = () => {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    getSomething()
-      .then(response => {
-        setMessage(response.message);
-      })
-      .catch(error => {
-        setMessage(error.message);
-      });
-  });
+  const [message, setMessage] = useState([]);
 
   return (
-    <div className="App">
-      <h1>Hello, World!</h1>
-      <h2>{ message }</h2>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Start message={message} setMessage={setMessage} />
+        </Route>
+        <Route path="/second">
+          <Second />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
