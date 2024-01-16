@@ -1,23 +1,23 @@
 import React, { useEffect } from "react";
 import { getSomething } from "../api";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Start = ({ message, setMessage }) => {
-  let history = useHistory();
+  let history = useNavigate();
 
-  useEffect(() => {
-    getSomething()
-      .then((response) => {
-        console.log(response.message);
-        // setMessage(response.message);
-      })
-      .catch((error) => {
-        setMessage(error.message);
-      });
-  });
+  // useEffect(() => {
+  //   getSomething()
+  //     .then((response) => {
+  //       console.log(response.message);
+  //       // setMessage(response.message);
+  //     })
+  //     .catch((error) => {
+  //       setMessage(error.message);
+  //     });
+  // });
 
   function handleClick() {
-    history.push("/second");
+    history("/second");
   }
   return (
     <div className="App">
